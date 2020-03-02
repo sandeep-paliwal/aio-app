@@ -1,0 +1,5 @@
+name: 'AIO App'
+description: 'Execute AIO App commands'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
