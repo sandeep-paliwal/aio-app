@@ -64,7 +64,14 @@ if(!command || command === '')
 
 let commandStr = ""
 if(command.toLowerCase() === 'build') {
-  commandStr = "aio app deploy --skip-deploy"
+  const namespace = core.getInput('AIO_RUNTIME_NAMESPACE');
+
+  if(!namespace)
+    throw new Error("AIO_RUNTIME_NAMESPACE must be passed to the action")
+
+  process.env.AIO_RUNTIME_NAMESPACE = namespace
+
+  commandStr = "sudo --preserve-env aio app deploy --skip-deploy"
 }
 else if(command.toLowerCase() === 'deploy') {
   const namespace = core.getInput('AIO_RUNTIME_NAMESPACE');
