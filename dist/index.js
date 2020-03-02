@@ -86,7 +86,7 @@ else if(command.toLowerCase() === 'deploy') {
   commandStr = "sudo --preserve-env aio app deploy --skip-build"
 }
 else if(command.toLowerCase() === 'test') {
-  commandStr = "aio app test"
+  commandStr = "npm i;aio app test"
 }
 
 try {
