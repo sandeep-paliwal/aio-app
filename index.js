@@ -54,7 +54,7 @@ try {
 
 async function runCLICommand(os, commandStr) {
   if(os && os.startsWith("ubuntu"))
-    commandStr = 'sudo ' + commandStr
+    commandStr = 'sudo --preserve-env ' + commandStr
 
   await exec.exec(commandStr)
 }
